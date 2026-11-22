@@ -60,7 +60,9 @@ return {
 
         opts.desc = "Format buffer"
         keymap.set("n", "<leader>rf", function()
-          vim.lsp.buf.format({ async = true })
+          -- vim.lsp.buf.format({ async = true })
+          -- uses conform (prettier for js/ts/react), falls back to the lsp formatter (e.g. clangd)
+          require("conform").format({ async = true, lsp_format = "fallback" })
         end, opts)
 
         if vim.bo[ev.buf].filetype == "c" or vim.bo[ev.buf].filetype == "cpp" then

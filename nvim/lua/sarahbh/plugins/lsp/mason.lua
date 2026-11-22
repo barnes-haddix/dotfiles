@@ -30,6 +30,8 @@ return {
         "clangd",
         "lua_ls",
         "pyright",
+        "ts_ls", 
+        "eslint", -- eslint language server - webdev
       },
       
       -- call vim.lsp.enable() on every installed server
@@ -40,6 +42,7 @@ return {
     require("mason-tool-installer").setup({
       ensure_installed = {
         "clang-format",
+        "prettier", -- formatter for js/ts/react/json/css/html (run through conform.nvim, see conform.lua)
         "tree-sitter-cli", -- needed by nvim-treesitter (main branch) to compile parsers
       },
     })

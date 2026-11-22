@@ -19,6 +19,7 @@ return {
       "json",
       "javascript",
       "typescript",
+      "tsx",
       "yaml",
       "html",
       "css",
@@ -37,6 +38,10 @@ return {
       "cpp",
       "python",
     })
+
+    -- make sure react filetypes map onto the right parsers
+    vim.treesitter.language.register("tsx", "typescriptreact")
+    vim.treesitter.language.register("javascript", "javascriptreact")
 
     vim.api.nvim_create_autocmd("FileType", {
       group = vim.api.nvim_create_augroup("UserTreesitter", {}),
